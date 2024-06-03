@@ -1,0 +1,33 @@
+<div class="settings-dialog">
+    <div class="settings-header">
+        <div class="placeholder"></div>
+        <h2 class="settings-title">CONFIGURACION</h2>
+        <button
+            mat-icon-button
+            class="close-settings-btn"
+            aria-label="Close button"
+            [mat-dialog-close]>
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+    <div class="settings-content">
+        <div class="settings-item">
+            <h3>Tema oscuro</h3>
+            <mat-slide-toggle 
+                title="More themes coming soon!" 
+                [color]="'primary'" 
+                [checked]="true" 
+                [disabled]="true">
+            </mat-slide-toggle>
+        </div>
+        <div class="settings-item">
+            <h3>Comentario</h3>
+            <a href="mailto:wendyrociosin@gmail.com">Email</a>
+        </div>
+        <div class="settings-item">
+            <h3>Restablecer estadísticas</h3>
+            <button (click)="resetGame()" mat-stroked-button>Reiniciar</button>
+        </div>
+    </div>
+    <p class="copyright">&copy; {{ year }} Wendy Sinisterra / Yonathan Obregon</p>
+</div>

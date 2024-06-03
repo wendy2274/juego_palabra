@@ -1,0 +1,9 @@
+<div class="key">
+    <button 
+        (click)="onClick()" 
+        [style.background-color]="bgColor$ | async" 
+        [ngClass]="{ 'large-btn': key === 'ENTER' }"
+    >
+        {{ key }}
+    </button>
+</div>

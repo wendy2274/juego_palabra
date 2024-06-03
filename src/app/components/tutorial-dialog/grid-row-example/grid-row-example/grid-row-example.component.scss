@@ -1,0 +1,39 @@
+@use "variables";
+
+@mixin tileStyle($color) {
+    background-color: $color;
+    border: 2px solid $color;
+}
+
+.grid-row {
+    display: flex;
+    justify-content: center;
+}
+
+.tile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid variables.$main-gray;
+    height: 40px;
+    width: 40px;
+    margin: 0.2rem;
+    color: variables.$main-text-white;
+    font-weight: 500;
+
+    @media screen and (min-height: variables.$breakpoint-height) {
+        height: 60px;
+        width: 60px;
+    }
+}
+
+.correct {
+    @include tileStyle(variables.$green-correct);
+}
+.close {
+    @include tileStyle(variables.$yellow-close);
+}
+.incorrect {
+    @include tileStyle(variables.$grey-incorrect);
+
+}

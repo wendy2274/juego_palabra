@@ -1,0 +1,31 @@
+@use "variables";
+
+.tile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid variables.$main-gray;
+    height: 40px;
+    width: 40px;
+    margin: 0.2rem;
+    color: variables.$main-text-white;
+    font-weight: 500;
+
+    @media screen and (min-height: variables.$breakpoint-height) {
+        height: 60px;
+        width: 60px;
+    }
+}
+
+.correct {
+    background-color: variables.$green-correct;
+    border: 2px solid variables.$green-correct;
+}
+.close {
+    background-color: variables.$yellow-close;
+    border: 2px solid variables.$yellow-close;
+}
+.incorrect {
+    background-color: variables.$grey-incorrect;
+    border: 2px solid variables.$grey-incorrect;
+}

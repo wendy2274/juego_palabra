@@ -1,0 +1,43 @@
+@use "variables";
+
+h1, h2, h3, p {
+    margin: 0;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-dialog-container {
+    background-color: variables.$main-bg-color;
+}
+
+// override default snackbar styles
+.mat-snack-bar-container.game-result-notif {
+    max-width: 55vw;
+    margin-bottom: 2rem;
+
+    &.correct-guess {
+        color: variables.$green-correct;
+    } 
+    
+    &.incorrect-guess {
+        color: #C03F5D;
+    }
+
+    .mat-simple-snackbar-action {
+        color: white;
+    }
+}
+
+// override default backdrop for mat drawer
+.mat-drawer-backdrop.mat-drawer-shown {
+    background-color: transparent;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+
+    li {
+        list-style-type: none;
+    }
+}

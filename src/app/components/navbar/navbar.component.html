@@ -1,0 +1,22 @@
+<nav class="nav-bar">
+    <div class="nav-left-side">
+        <button (click)="openSideNav()" mat-icon-button aria-label="Button with a horizontal 3 lines icon">
+            <mat-icon svgIcon="menu"></mat-icon>
+        </button>
+        <button (click)="openTutorialDialog()" mat-icon-button aria-label="Button with a question mark icon">
+            <mat-icon svgIcon="questionMark"></mat-icon>
+        </button>
+    </div>
+    <div class="nav-center">
+        <h1 class="nav-title">Palabra</h1>
+        <span class="unlimited-text">Juego</span>
+    </div>
+    <div class="nav-right-side">
+        <button (click)="openSettingsDialog()" mat-icon-button aria-label="Button with settings cog icon">
+            <mat-icon svgIcon="settings"></mat-icon>
+        </button>
+        <button (click)="openStatsDialog()" mat-icon-button aria-label="Button with bar chart for statistics">
+            <mat-icon>bar_chart</mat-icon>
+        </button>
+    </div>
+</nav>

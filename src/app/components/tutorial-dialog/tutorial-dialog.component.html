@@ -1,0 +1,37 @@
+<div class="tutorial-dialog">
+    <div class="tutorial-header">
+        <div class="placeholder"></div>
+        <h2 class="tutorial-title">COMO JUGAR</h2>
+        <button
+            mat-icon-button
+            class="close-tutorial-btn"
+            aria-label="Close button"
+            [mat-dialog-close]>
+            <mat-icon>cerrar</mat-icon>
+        </button>
+    </div>
+
+    <div class="tutorial-directions">
+        <p>Adivina la PALABRA en seis intentos.</p>
+        <p>Cada respuesta debe ser una palabra válida de cinco letras. Presione el botón Enter para enviar.</p>
+        <p>Después de cada envio, el color de las fichas cambiará para mostrar qué tan cerca estuvo de adivinar la palabra.</p>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="tutorial-examples">
+        <p>Ejemplos</p>
+        <div class="tut-grid-row-container">
+            <grid-row-example [wordExampleObject]="wordExamples[0]"></grid-row-example>
+            <p>La letra C está en la palabra y en el lugar correcto.</p>
+        </div>
+        <div class="tut-grid-row-container">
+            <grid-row-example [wordExampleObject]="wordExamples[1]"></grid-row-example>
+            <p>La letra O  está en la palabra pero en el lugar equivocado.</p>
+        </div>
+        <div class="tut-grid-row-container">
+            <grid-row-example [wordExampleObject]="wordExamples[2]"></grid-row-example>
+            <p>La letra C no está en ningún lugar de la palabra.</p>
+        </div>
+    </div>
+    <mat-divider></mat-divider>
+    <p>¡Un nuevo juego está disponible cuando quieras en juego Ilimitado!</p>
+</div>

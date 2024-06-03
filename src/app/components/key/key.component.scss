@@ -1,0 +1,38 @@
+@use "variables";
+
+.key {
+    margin: 2px;
+
+    button {
+        width: 2.75rem;
+        height: 3.75rem;
+        background-color: variables.$key-bg;
+        color: variables.$main-text-white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: lighten(variables.$key-bg, 10%);
+        }
+    }
+
+    .large-btn {
+        width: 4rem;
+    }
+
+    
+}
+
+@media screen and (min-height: variables.$breakpoint-height) {
+    .key {
+        button {
+            min-width: 3.5rem;
+            height: 4.5rem;
+        }
+
+        .large-btn {
+            width: 5.75rem;
+        }
+    }
+}

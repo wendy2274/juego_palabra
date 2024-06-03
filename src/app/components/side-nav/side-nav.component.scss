@@ -1,0 +1,40 @@
+@import "variables.scss";
+
+.side-nav {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.side-nav-title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+
+    h2 {
+        font-size: 28px;
+    }
+}
+
+.unlimited-text {
+    font-family: Brush Script MT, Brush Script Std, cursive;
+    font-size: 1.25rem;
+    transform: rotate(20deg);
+}
+
+.side-nav-links {
+    li {
+        margin-bottom: 1.25rem;
+        display: flex;
+        align-items: center;
+    }
+    a {
+        color: $main-text-white;
+        margin-left: 0.5rem;
+    }
+}
+
+.copyright {
+    font-size: 0.875rem;
+}

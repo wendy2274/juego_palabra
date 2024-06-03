@@ -1,0 +1,15 @@
+export const wordBank = [
+"color",
+"campo",
+"carro",
+"Mundo",
+"Amore",
+"Tiene",
+"casas",
+"Fotos",
+"Verde",
+"Playa",
+"Nieve",
+"Risas",
+"Suelo",
+];

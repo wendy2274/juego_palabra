@@ -1,0 +1,42 @@
+@use "variables";
+
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    background-color: variables.$main-bg-color;
+    color: variables.$main-text-white;
+    height: variables.$navbar-height;
+    border-bottom: 1px solid variables.$main-gray;
+    box-sizing: border-box;
+
+    .nav-title {
+        font-size: 2.25rem;
+    }
+
+    .unlimited-text {
+        font-family: Brush Script MT, Brush Script Std, cursive;
+        font-size: 1.75rem;
+        transform: rotate(20deg);
+    }
+
+    .nav-center {
+        display: flex;
+        align-items: center;
+    }
+
+    .nav-left-side,
+    .nav-right-side {
+        width: 80px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    button {
+        color: white;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
+}
