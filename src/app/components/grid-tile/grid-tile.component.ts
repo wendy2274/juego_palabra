@@ -8,6 +8,7 @@ import { MainService } from '../main/main.service';
   templateUrl: './grid-tile.component.html',
   styleUrls: ['./grid-tile.component.scss']
 })
+
 export class GridTileComponent implements OnInit {
   @Input() tileNum!: number;
   @Input() rowNum!: number;

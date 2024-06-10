@@ -31,7 +31,7 @@ enum GameRules {
 })
 export class MainService {
 
-  // behavior subjects, used to house the state object(s)
+// sujetos de comportamiento, utilizados para albergar elos objetos de estado
   private readonly _state$ = new BehaviorSubject<Readonly<KeyState>>(initialState);
 
   protected get state() {
@@ -65,7 +65,7 @@ export class MainService {
   }
 
   /**
-   * on game load, check if we have something in local storage to track our user's game history 
+   *Al cargar el juego, verificamos si tenemos algo en el almacenamiento local para rastrear el historial de juego de nuestro usuario.
    */
    private loadConfig() {
     const wordleData = localStorage.getItem("wordleData");
@@ -89,7 +89,7 @@ export class MainService {
   }
 
   /**
-   * after submitting a game, save the game and user's updated stats to local storage
+   * Después de enviar un juego, guarda el juego y las estadísticas actualizadas del usuario en el almacenamiento local.
    */
   private submitGame(gameWon: boolean, guessAmount: number) {
     const wordleData = JSON.parse(localStorage.getItem("wordleData") as string);
@@ -142,8 +142,7 @@ export class MainService {
 
   
 
-  /**
-   * generate game, update state with user's last game history (whether it was finished or unfinished)
+  /*** generar juego, actualizar el estado con el historial del último juego del usuario (ya sea terminado o sin terminar)
    */
   private generateGame() {
     const wordleData = JSON.parse(localStorage.getItem("wordleData") as string);
@@ -166,61 +165,61 @@ export class MainService {
     if(usedWordsList.includes(word)) {
       this.generateWord();
     } else {
-      // update used words list in local storage with new word
+     // actualizar la lista de palabras usadas en el almacenamiento local con la nueva palabra
       const updatedUsedWordsList = JSON.stringify([...usedWordsList, word])
       localStorage.setItem("usedWordsList", updatedUsedWordsList);
 
-      // update state with new word
+      //actualizar estado con nueva palabra
       this.updateCurrentWord(word);
     }
   }
 
   /**
-   * when a user leaves wordle, save the progress of the game
+   * cuando un usuario abandona juego, guarda el progreso del juego
    */
   public saveCurrentGame() {
     this.saveBeforeLeaving();
   }
 
-  // actions, settings state from other components
+ // acciones, configuraciones de estado de otros componentes
 
   /**
-   * adds the clicked letter to the current row's word 
-   * @param key the alphabetical key clicked on the keyboard in the app
+   * agrega la letra en la que se hizo clic a la palabra de la fila actual
+   * @param key La tecla alfabetica presionada en el teclado de la aplicación
    */
   public addLetterToWord(key: string) {
     this.setAddedLetter(key);
   }
 
   /**
-   * removes the last letter from the current row
+   * elimina la última letra de la fila actual
    */
   public removeLetter() {
     this.setRemoveLetter();
   }
 
   /**
-   * enters / submits the current row's word if it is complete
+   * Ingresa/envía la palabra de la fila actual si está completa
    */
   public enterWord() {
     this.submitWord();
   }
 
   /**
-   * opens the statistics dialog with the user's past game stats
+   *Abre el cuadro de diálogo de estadísticas con las estadísticas de juegos anteriores del usuario.
    */
   public openStatisticsDialog() {
     this.openStatsDialog();
   }
 
   /**
-   * completely resets the user's stats
+   *restablece por completo las estadísticas del usuario
    */
   public resetStats() {
     // reset state
     this.resetState();
     
-    // configure new game with new local storage data
+    // configurar un nuevo juego con nuevos datos de almacenamiento local
     this.loadConfig();
     this.generateGame();
 
@@ -232,15 +231,15 @@ export class MainService {
 
 
   /**
-   * add a letter to the user's guessed word
+   *Añade una letra a la palabra adivinada por el usuario.
    */
   protected setAddedLetter(key: string) {
     if(this.state.guessedWord.length === GameRules.WordLength) return;
 
-    // update current word with new letter
+    // actualiza la palabra actual con la nueva letra
     const updatedWord = this.state.guessedWord + key
     
-    // update the 'current word' in state
+   // actualiza la 'palabra actual' en el estado
     this._state$.next({
       ...this.state,
       guessedWord: updatedWord
@@ -248,16 +247,16 @@ export class MainService {
   }
 
   /**
-   * remove letter from the user's guessed word
+   * eliminar letra de la palabra adivinada por el usuario
    */
   protected setRemoveLetter() {
     if(this.state.guessedWord.length === 0) return;
 
-    // update current word with removing last letter
+  // actualiza la palabra actual eliminando la última letra
     const { guessedWord } = this.state;
     const updatedWord = guessedWord.substring(0, guessedWord.length - 1);
  
-    // update the 'current word' in state
+    // actualiza la 'palabra actual' en el estado
     this._state$.next({
       ...this.state,
       guessedWord: updatedWord
@@ -265,8 +264,8 @@ export class MainService {
   }
 
   /**
-   * submits the current word if the guessed word is complete
-   * add the complete, full word, to the list of guessed words, reset the guessed word, move to next row
+   * * envía la palabra actual si la palabra adivinada está completa
+*    agrega la palabra completa a la lista de palabras adivinadas, restablece la palabra adivinada y pasa a la siguiente fila
    */
   protected submitWord() {
     const { guessedWord, currentWord, currentRow, guessedWordsList } = this.state
